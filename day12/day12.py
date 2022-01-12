@@ -102,32 +102,6 @@ def dfs_paths_revisit(graph, node_name, paths, curpath=()):
     return
 
 
-# def dfs_paths_revisit(graph, paths):
-#     node = graph["start"]
-
-
-    
-    
-#     #blows up stack
-#     curpath = curpath + (node_name,)
-#     visited_small_caves = [x for x in curpath if x.lower() == x and x not in ("start", "end")]
-#     revisited = len(visited_small_caves) == len(set(visited_small_caves)) + 1
-#     #print(curpath, revisited, visited_small_caves)
-#     if node_name == "end":
-#         #print(curpath)
-#         paths.append(curpath)
-#         return
-#     children = graph[node_name]
-#     for child in children:
-#         if child.lower() == child and child in curpath and revisited:
-#             #Lowercase nodes can only be visited once
-#             continue
-#         else:
-#             dfs_paths_revisit(graph, child, paths, curpath)
-#     return
-
-
-
 
 def cave_explorer(source, revisit_once=False):
     g = parse_graph(source)
@@ -153,11 +127,11 @@ def main(filename):
     
 
 if __name__ == "__main__":
-    # assert cave_explorer(test_input_) == 10
-    # assert cave_explorer(test_input2_) == 19
-    # assert cave_explorer(test_input3_) == 226
-    # assert cave_explorer(test_input_, True) == 36
+    assert cave_explorer(test_input_) == 10
+    assert cave_explorer(test_input2_) == 19
+    assert cave_explorer(test_input3_) == 226
+    assert cave_explorer(test_input_, True) == 36
     assert cave_explorer(test_input2_, True) == 103
-    # assert cave_explorer(test_input3_, True) == 3509
+    assert cave_explorer(test_input3_, True) == 3509
 
     main("input.txt")
